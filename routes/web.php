@@ -13,18 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route home
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('home', function () {
+    return view('home');
+})->name('home');
+
+// Route home
 Route::get('about', function () {
     return view('about');
 })->name('about');
 
+// Route home
 Route::get('post', function () {
     return view('post');
 })->name('post');
 
+// Route tampilan contact
 Route::get('contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+    return view('admin.index');
+    });
+});

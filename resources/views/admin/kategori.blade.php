@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('judul')
-    Admin
+    Kategori
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
                             </div>
                         @endif
 
-                        {{ __('Ini halaman home!') }}
+                        {{ __('Ini halaman kategori!') }}
                     </div>
                 </div>
             </div>

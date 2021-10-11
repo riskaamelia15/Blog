@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 // Route home
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('beranda');
+})->name('beranda');
 
-Route::get('home', function () {
-    return view('home');
-})->name('home');
+Route::get('beranda', function () {
+    return view('beranda');
+})->name('beranda');
 
 // Route home
 Route::get('about', function () {
@@ -42,3 +42,8 @@ Route::prefix('admin')->group(function () {
     return view('admin.index');
     });
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

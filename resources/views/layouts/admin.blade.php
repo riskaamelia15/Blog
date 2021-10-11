@@ -41,7 +41,7 @@
 
         <!-- Navbar -->
         @include('include.admin.nav')
-        <!-- /.navbar -->
+        <!-- end navbar -->
 
         <!-- Main Sidebar Container -->
         @include('include.admin.sidebar')
@@ -61,17 +61,17 @@
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Dashboard v1</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end container-fluid -->
             </div>
-            <!-- /.content-header -->
+            <!-- end content-header -->
 
             <!-- Main content -->
             @yield('content')
-            <!-- /.content -->
+            <!-- end content -->
         </div>
-        <!-- /.content-wrapper -->
+        <!-- end content-wrapper -->
 
         {{-- Footer --}}
         @include('include.admin.foot')
@@ -81,10 +81,11 @@
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
         </aside>
-        <!-- /.control-sidebar -->
+        <!-- end control-sidebar -->
     </div>
-    <!-- ./wrapper -->
+    <!-- end wrapper -->
 
+    {{-- URL asset --}}
     <!-- jQuery -->
     <script src="{{ asset('assets/admin/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -120,6 +121,7 @@
     <script src="{{ asset('assets/admin/dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('assets/admin/dist/js/pages/dashboard.js') }}"></script>
+    {{-- End URL asset --}}
 </body>
 
 </html>

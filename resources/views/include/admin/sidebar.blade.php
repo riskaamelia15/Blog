@@ -93,6 +93,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('book/edit') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    edit
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

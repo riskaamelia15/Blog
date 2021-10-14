@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('judul')
-    Index
+    Edit
 @endsection
 
 @section('content')
@@ -18,12 +18,8 @@
                             </div>
                         @endif
 
-                        @foreach ($buku as $data)
-                            Nama buku : {{ $data->nama }} <br>
-                            Jumlah Halaman : {{ $data->halaman }} Halaman <br>
-                            Translate Judul : {{ $data->translate ?? 'Belum ada translate' }}
-                            <hr>
-                        @endforeach
+                        Ini halaman edit!
+                        {{ $id }}
                     </div>
                 </div>
             </div>

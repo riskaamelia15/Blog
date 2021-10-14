@@ -14,6 +14,9 @@ class BookController extends Controller
      */
     public function index()
     {
+        //Kalo hanya ingin menampilkan satu data
+        //$buku = Book::take(1)->get();
+
         $buku = Book::all();
         return view('book.index', compact('buku'));
 

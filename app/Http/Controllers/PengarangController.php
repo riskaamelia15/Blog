@@ -6,7 +6,7 @@ use App\Models\Book;
 use App\Models\Pengarang;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class PengarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //Kalo hanya ingin menampilkan satu data
-        //$buku = Book::take(1)->get();
-
         $buku = Book::all();
         $pengarang = Pengarang::all();
-
         return view('admin.index', compact('buku', 'pengarang'));
 
     }
@@ -32,8 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book.create');
-
+        return view('admin.create');
     }
 
     /**
@@ -44,41 +39,49 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pengarang = new Pengarang();
+        $pengarang->nama_pengarang = $request->input('nama_pengarang');
+        $pengarang->email = $request->input('email');
+        $pengarang->tlp = $request->input('tlp');
+        $book->nama = $request->input('nama');
+        $book->halaman = $request->input('halaman');
+        $book->translate = $request->input('translate');
+        $book->save();
+        $pengarang->save();
+        return redirect()->route('admin.index');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pengarang $pengarang)
     {
-        return view('book.show', compact('id'));
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pengarang $pengarang)
     {
-        return view('book.edit', compact('id'));
-
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pengarang $pengarang)
     {
         //
     }
@@ -86,10 +89,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pengarang  $pengarang
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pengarang $pengarang)
     {
         //
     }

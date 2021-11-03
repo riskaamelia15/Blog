@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('judul')
-    Home
+    Add
 @endsection
 
 @section('content')
@@ -10,8 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Daftar Buku</h3>
-                        <a href="{{ route('pengarang.create') }}" class="btn btn-sm btn-primary float-right">Tambah</a>
+                        <h3 class="card-title">Tambah Data Pengarang Buku</h3>
                     </div>
 
                     <div class="card-body">
@@ -21,57 +20,36 @@
                             </div>
                         @endif
 
-                        @foreach ($buku as $data)
-                            Nama Pengarang : {{ $data->pengarang->nama_pengarang }} <br>
-                            Email Pengarang : {{ $data->pengarang->email }} <br>
-                            Nama buku : {{ $data->nama }} <br>
-                            @if ($data->halaman > 1)
-                                Jumlah Halaman : {{ $data->halaman }} Halaman <br>
-                            @else
-                                Jumlah Halaman : <b>Belum mempunyai jumlah halaman</b> <br>
-                            @endif
-                            Translate Judul : {{ $data->translate ?? 'Belum ada translate' }} <br>
-                            <button class="btn btn-success">Edit</button>
-                            <button class="btn btn-warning">Show</button>
-                            <button class="btn btn-danger">Delete</button>
-                            <hr>
-                        @endforeach
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Daftar Pengarang Buku</h3>
-                        <a href="{{ route('pengarang.create') }}" class="btn btn-sm btn-primary float-right">Tambah</a>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        @foreach ($pengarang as $data)
-                            Nama Pengarang : {{ $data->nama_pengarang }} <br>
-                            Email Pengarang : {{ $data->email }} <br>
-                            Tlp Pengarang : {{ $data->tlp }} <br>
-                            <b>Daftar Buku</b> <br>
-                            @foreach ($data->book as $data)
-                                Nama buku : {{ $data->nama }} <br>
-                                @if ($data->halaman > 1)
-                                    Jumlah Halaman : {{ $data->halaman }} Halaman <br>
-                                @else
-                                    Jumlah Halaman : <b>Belum mempunyai jumlah halaman</b> <br>
-                                @endif
-                                Translate Judul : {{ $data->translate ?? 'Belum ada translate' }} <br>
-                            @endforeach
-                            <button class="btn btn-success">Edit</button>
-                            <button class="btn btn-warning">Show</button>
-                            <button class="btn btn-danger">Delete</button>
-                            <hr>
-                        @endforeach
+                        <form action="{{ route('pengarang.store') }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="">Nama Pengarang</label>
+                                <input type="text" class="form-control" name="nama_pengarang" id="nama_pengarang">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Telepon</label>
+                                <input type="text" class="form-control" name="tlp" id="tlp">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Judul Buku</label>
+                                <input type="text" class="form-control" name="nama" id="nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Jumlah Halaman</label>
+                                <input type="number" class="form-control" name="halaman" id="halaman">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Translate Judul Buku</label>
+                                <input type="text" class="form-control" name="translate" id="translate">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary btn-block" name="add" id="" value="Simpan">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

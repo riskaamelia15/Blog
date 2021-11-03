@@ -13,8 +13,16 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('books')) {
+            return;
+        }
+
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pengarang_id');
+            $table->foreign('pengarang_id')
+                ->references('id')
+                ->on('pengarangs');
             $table->string('nama');
             $table->integer('halaman')->default(0);
             $table->string('translate')->nullable();
